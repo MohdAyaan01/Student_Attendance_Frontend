@@ -1,1 +1,64 @@
 @import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #6366f1;
+  --color-brand-secondary: #a855f7;
+  --color-surface-card: rgba(255, 255, 255, 0.05);
+  --color-surface-glass: rgba(255, 255, 255, 0.03);
+}
+
+:root {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --accent: #6366f1;
+  --accent-foreground: #ffffff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-2xl border border-white/5;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400;
+  }
+
+  .btn-premium {
+    @apply px-6 py-3 rounded-2xl font-semibold transition-all duration-300
+           bg-gradient-to-r from-indigo-600 to-purple-600 text-white
+           hover:shadow-[0_0_20px_rgba(99,102,241,0.4)] hover:scale-[1.02]
+           active:scale-[0.98];
+  }
+
+  .card-premium {
+    @apply glass p-6 rounded-3xl transition-all duration-500 hover:border-white/20 hover:shadow-2xl hover:shadow-indigo-500/10;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-white/20;
+}
